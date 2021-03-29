@@ -1,17 +1,19 @@
 {
-  "development": {
-    "database": "nodejs-starter-dev",
-    "host": "127.0.0.1",
-    "port": 5432,
-    "dialect": "postgres"
-  },
-  "test": {
-    "database": "nodejs-starter-test",
-    "host": "127.0.0.1",
-    "port": 5432,
-    "dialect": "postgres"
-  },
-  "production": {
-    "use_env_variable": "DATABASE_URL"
-  }
+	"development": {
+		"database": "nodejs-starter-dev",
+		"host": "127.0.0.1",
+		"port": 5432,
+		"dialect": "postgres",
+		"username": "sanjay",
+		"password": "sanjay-pass"
+	},
+	"test": {
+		"database": "nodejs-starter-test",
+		"host": "127.0.0.1",
+		"port": 5432,
+		"dialect": "postgres"
+	},
+	"production": {
+		"use_env_variable": "DATABASE_URL"
+	}
 }

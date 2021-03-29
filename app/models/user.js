@@ -6,16 +6,18 @@ module.exports = (sequelize, DataTypes) => {
     {
       username: { type: DataTypes.STRING, unqiue: true, allowNull: false },
       avatar_url: DataTypes.STRING,
-      github_id: DataTypes.STRING
+      github_id: DataTypes.STRING,
+      createdAt: DataTypes.DATE,
+      updatedAt: DataTypes.DATE,
     },
     { sequelize }
   );
 
-  User.associate = function(models) {
+  User.associate = function (models) {
     // associations can be defined here
   };
 
-  User.find_or_create_from_token = async function(access_token) {
+  User.find_or_create_from_token = async function (access_token) {
     const data = await GitHub.get_user_from_token(access_token);
 
     /* Find existing user or create new User instances */

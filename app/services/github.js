@@ -25,22 +25,31 @@ class GitHub {
     };
 
     const { data } = await axios.post(token_url, params, config);
+    console.log("Data:", data);
     return data.access_token;
   }
 
   async get(route_url, params = {}) {
     const url = api_url + route_url;
-    params["access_token"] = this.access_token;
+    const config = {
+      headers: {
+        "Authorization": `token ${this.access_token}`
+      },
+      params: params,
+    }
 
-    const response = await axios.get(url, { params });
+    const response = await axios.get(url, config);
     return response.data;
   }
 
   static async get_user_from_token(access_token) {
     /* Fetch user data using the access token. */
     const url = api_url + "/user";
-    const config = { params: { access_token: access_token } };
-
+    const config = {
+      headers: {
+        "Authorization": `token ${access_token}`,
+      }
+    }
     const response = await axios.get(url, config);
     return response.data;
   }
